@@ -146,10 +146,11 @@ a { color: var(--maroon); }
 .topbar-info { display: flex; gap: 26px; align-items: center; min-width: 0; }
 .topbar-info a, .topbar-info span { display: inline-flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; white-space: nowrap; transition: color var(--dur) var(--ease); }
 .topbar-info a:hover { color: var(--gold-light); }
-.topbar-info svg { color: var(--gold); width: 15px; height: 15px; }
+.topbar-info svg { box-sizing: border-box; width: 26px; height: 26px; padding: 6px; border-radius: var(--radius-sm); background: var(--maroon); color: var(--white); fill: currentColor; flex-shrink: 0; transition: background var(--dur) var(--ease); }
+.topbar-info a:hover svg { background: var(--maroon-hover); }
 .topbar-social { display: flex; gap: 4px; }
-.topbar-social a { display: grid; place-items: center; width: 30px; height: 30px; border-radius: var(--radius-sm); color: rgba(255,255,255,.8); transition: background var(--dur) var(--ease), color var(--dur) var(--ease); }
-.topbar-social a:hover { background: var(--maroon); color: var(--white); }
+.topbar-social a { display: grid; place-items: center; width: 30px; height: 30px; border-radius: var(--radius-sm); background: var(--maroon); color: var(--white); transition: background var(--dur) var(--ease), color var(--dur) var(--ease); }
+.topbar-social a:hover { background: var(--maroon-hover); color: var(--white); }
 .topbar-social svg, .footer-social svg { width: 14px; height: 14px; fill: currentColor; }
 
 /* Maroon menu bar: a shade close to the deep top bar above it */

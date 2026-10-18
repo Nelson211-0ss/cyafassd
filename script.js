@@ -138,14 +138,21 @@ if (tabs.length) {
 const progLinks = [...document.querySelectorAll('.prog-nav a')];
 if (progLinks.length) {
   const targets = progLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const progList = document.querySelector('.prog-nav ul');
+  let activeLink = null;
   const progObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      progLinks.forEach(a => {
-        const on = a.getAttribute('href') === '#' + entry.target.id;
-        a.classList.toggle('active', on);
-        if (on) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
-      });
+      const link = progLinks.find(a => a.getAttribute('href') === '#' + entry.target.id);
+      if (!link || link === activeLink) return;
+      activeLink = link;
+      progLinks.forEach(a => a.classList.toggle('active', a === link));
+      // Centre the link by scrolling only the menu sideways. scrollIntoView would also
+      // smooth-scroll the page, which cancels the visitor's own scrolling and feels stuck.
+      const linkBox = link.getBoundingClientRect();
+      const listBox = progList.getBoundingClientRect();
+      const left = progList.scrollLeft + linkBox.left - listBox.left - (listBox.width - linkBox.width) / 2;
+      progList.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
   targets.forEach(t => progObserver.observe(t));

@@ -902,11 +902,14 @@ h2 { font-weight: 700; letter-spacing: -.02em; line-height: 1.1; color: var(--ma
 .sch-area svg { color: var(--gold); }
 
 /* Flagship scholarship: full-width split */
-.sch-flagship { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); scroll-margin-top: 110px; }
-.sch-flagship-quote { display: flex; flex-direction: column; justify-content: center; padding: clamp(64px, 8vw, 120px) clamp(24px, 6vw, 96px); background: var(--maroon); color: var(--white); }
+/* Content sits in the page container; the maroon panel bleeds to the left edge */
+.sch-flagship { overflow: hidden; background: var(--surface); scroll-margin-top: 110px; }
+.sch-flagship-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+.sch-flagship-quote { position: relative; z-index: 0; display: flex; flex-direction: column; justify-content: center; padding: clamp(64px, 8vw, 120px) clamp(32px, 5vw, 72px) clamp(64px, 8vw, 120px) 0; color: var(--white); }
+.sch-flagship-quote::before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; left: -100vw; z-index: -1; background: var(--maroon); }
 .sch-flagship-quote > svg { width: 46px; height: 46px; color: var(--gold); margin-bottom: 26px; }
 .sch-flagship-quote blockquote { margin: 0; max-width: 17em; font-family: var(--font-head); font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.35rem); font-weight: 600; line-height: 1.28; letter-spacing: -.015em; }
-.sch-flagship-body { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(64px, 8vw, 120px) clamp(24px, 6vw, 96px); background: var(--surface); }
+.sch-flagship-body { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(64px, 8vw, 120px) 0 clamp(64px, 8vw, 120px) clamp(32px, 5vw, 80px); }
 .sch-flagship-body h2 { font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.6rem); max-width: 17ch; margin-bottom: .5em; }
 .sch-flagship-body p { max-width: 54ch; }
 .sch-flagship-body .link-arrow { margin-top: 10px; }
@@ -998,7 +1001,10 @@ h2 { font-weight: 700; letter-spacing: -.02em; line-height: 1.1; color: var(--ma
   .mega-links-2 { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 980px) {
-  .sch-intro, .sch-support, .sch-flagship { grid-template-columns: minmax(0, 1fr); }
+  .sch-intro, .sch-support, .sch-flagship-inner { grid-template-columns: minmax(0, 1fr); }
+  .sch-flagship-quote { padding-right: 0; }
+  .sch-flagship-quote::before { right: -100vw; }
+  .sch-flagship-body { padding-left: 0; }
   .sch-collage { max-width: 560px; }
   .sch-frame { max-width: 520px; }
   .sch-frame img { aspect-ratio: 4 / 3; }

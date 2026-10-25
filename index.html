@@ -14,13 +14,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Figtree:wght@400..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=16">
   <script>document.documentElement.classList.add('js');try{if(!sessionStorage.getItem('cyafa-loaded'))document.documentElement.classList.add('preloading')}catch(e){}</script>
 </head>
 <body>
   <div class="preloader" aria-hidden="true">
     <div class="preloader-inner">
-      <img src="images/cyafa-logo-gold.png" alt="" width="395" height="120">
+      <img src="images/cyafa-logo.png" alt="" width="640" height="240">
       <span class="preloader-bar"><span></span></span>
     </div>
   </div>
@@ -45,7 +45,7 @@
     <div class="mainbar">
       <div class="container mainbar-inner">
         <a href="index.html" class="brand" aria-label="CYAFA South Sudan home">
-          <img src="images/cyafa-logo-white.png" alt="CYAFA South Sudan" class="brand-logo" width="395" height="120">
+          <img src="images/cyafa-logo.png" alt="CYAFA South Sudan" class="brand-logo" width="640" height="240">
         </a>
         <nav id="site-nav" class="site-nav" aria-label="Main">
           <a href="index.html" class="nav-link" aria-current="page">Home</a>
@@ -155,7 +155,6 @@
           <div class="hero-actions">
             <a href="about.html" class="btn btn-gold">Learn About Us <i data-lucide="arrow-right"></i></a>
             <a href="work.html" class="btn btn-outline">Our Work</a>
-            <a href="contact.html" class="btn btn-text"><span>Contact Us</span> <i data-lucide="arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -193,30 +192,75 @@
     <section class="section section-tint">
       <div class="container">
         <div class="head-row reveal">
-          <div class="section-head"><h2>Our work</h2></div>
+          <div class="section-head">
+            <span class="eyebrow">What we do</span>
+            <h2>Our work</h2>
+            <p>Practical programs that help children learn, families stay healthy, and young people and women earn a living.</p>
+          </div>
           <a href="work.html" class="btn btn-outline-dark">All programs <i data-lucide="arrow-right"></i></a>
         </div>
-        <div class="bento">
-          <a href="work.html#education" class="bento-tile lg reveal">
-            <img src="images/education.jpg" alt="Children learning outdoors under a tree" loading="lazy">
-            <div class="bento-info"><h3><i data-lucide="graduation-cap"></i>Education</h3><p>New community schools and upgrades to existing ones, with a special focus on the girl child.</p></div>
+        <div class="work-cards">
+          <a href="work.html#education" class="work-card reveal">
+            <div class="work-card-img">
+              <img src="images/education.jpg" alt="Children learning outdoors under a tree" loading="lazy">
+              <span class="work-card-num">01</span>
+            </div>
+            <div class="work-card-body">
+              <span class="work-card-ic"><i data-lucide="graduation-cap"></i></span>
+              <h3>Education</h3>
+              <p>New community schools and upgrades to existing ones, with a special focus on the girl child.</p>
+              <span class="link-arrow">Learn more <i data-lucide="arrow-right"></i></span>
+            </div>
           </a>
-          <a href="work.html#health" class="bento-tile reveal">
-            <img src="images/health-wash.jpg" alt="A volunteer preparing a chlorine solution to make water safe" loading="lazy">
-            <div class="bento-info"><h3><i data-lucide="heart-pulse"></i>Health &amp; WASH</h3><p>Maternal and child health, immunization, safe drinking water and sanitation.</p></div>
+          <a href="work.html#health" class="work-card reveal">
+            <div class="work-card-img">
+              <img src="images/health-wash.jpg" alt="A volunteer preparing a chlorine solution to make water safe" loading="lazy">
+              <span class="work-card-num">02</span>
+            </div>
+            <div class="work-card-body">
+              <span class="work-card-ic"><i data-lucide="heart-pulse"></i></span>
+              <h3>Health &amp; WASH</h3>
+              <p>Maternal and child health, immunization, safe drinking water and sanitation.</p>
+              <span class="link-arrow">Learn more <i data-lucide="arrow-right"></i></span>
+            </div>
           </a>
-          <a href="work.html#women" class="bento-tile reveal">
-            <img src="images/women-tailoring.jpg" alt="A young woman sewing on a tailoring machine" loading="lazy" style="object-position: center 30%">
-            <div class="bento-info"><h3><i data-lucide="hand-heart"></i>Women</h3><p>Self help groups, income generating activities and vocational training.</p></div>
+          <a href="work.html#women" class="work-card reveal">
+            <div class="work-card-img">
+              <img src="images/women-tailoring.jpg" alt="A young woman sewing on a tailoring machine" loading="lazy" style="object-position: center 30%">
+              <span class="work-card-num">03</span>
+            </div>
+            <div class="work-card-body">
+              <span class="work-card-ic"><i data-lucide="hand-heart"></i></span>
+              <h3>Women's Empowerment</h3>
+              <p>Self help groups, income generating activities and vocational training.</p>
+              <span class="link-arrow">Learn more <i data-lucide="arrow-right"></i></span>
+            </div>
           </a>
-          <a href="work.html#livelihoods" class="bento-tile reveal">
-            <img src="images/livelihoods-fishing.jpg" alt="Young men preparing fishing nets" loading="lazy">
-            <div class="bento-info"><h3><i data-lucide="piggy-bank"></i>Livelihoods</h3><p>Access to credit and group savings for small enterprises.</p></div>
+          <a href="work.html#livelihoods" class="work-card reveal">
+            <div class="work-card-img">
+              <img src="images/livelihoods-fishing.jpg" alt="Young men preparing fishing nets" loading="lazy">
+              <span class="work-card-num">04</span>
+            </div>
+            <div class="work-card-body">
+              <span class="work-card-ic"><i data-lucide="piggy-bank"></i></span>
+              <h3>Livelihoods</h3>
+              <p>Access to credit and group savings for small enterprises.</p>
+              <span class="link-arrow">Learn more <i data-lucide="arrow-right"></i></span>
+            </div>
           </a>
-          <a href="work.html#legal-aid" class="bento-more reveal">
-            <strong>+6</strong>
-            <span>More programs <i data-lucide="arrow-up-right"></i></span>
-          </a>
+        </div>
+        <div class="work-more reveal">
+          <p class="work-more-title">More programs</p>
+          <ul>
+            <li><a href="scholarship.html"><i data-lucide="award"></i>Scholarship Programme</a></li>
+            <li><a href="work.html#youth"><i data-lucide="users"></i>Youth Empowerment</a></li>
+            <li><a href="work.html#legal-aid"><i data-lucide="scale"></i>Child Protection &amp; Legal Aid</a></li>
+            <li><a href="work.html#environment"><i data-lucide="leaf"></i>Environment &amp; Agriculture</a></li>
+            <li><a href="work.html#peacebuilding"><i data-lucide="landmark"></i>Peacebuilding &amp; Human Rights</a></li>
+            <li><a href="work.html#emergency"><i data-lucide="siren"></i>Emergency Response</a></li>
+            <li><a href="work.html#drug-abuse"><i data-lucide="shield-plus"></i>Drug Abuse Prevention</a></li>
+            <li><a href="work.html#resource-center"><i data-lucide="library"></i>Resource Center</a></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -346,7 +390,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="brand">
-          <img src="images/cyafa-logo-gold.png" alt="CYAFA South Sudan" class="brand-logo" width="395" height="120">
+          <img src="images/cyafa-logo.png" alt="CYAFA South Sudan" class="brand-logo" width="640" height="240">
         </a>
         <p>Children and Youths Advocate Foundation in Africa. A community based nonprofit organization working for the rights of children and youth.</p>
         <div class="footer-social" aria-label="Social media">

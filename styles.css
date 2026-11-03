@@ -94,9 +94,9 @@ a { color: var(--maroon); }
 }
 .preloading body { overflow: hidden; }
 .preloading.loaded .preloader { opacity: 0; visibility: hidden; }
-.preloader-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; animation: pre-in .7s var(--ease-out) both; }
-.preloader-inner img { width: clamp(200px, 50vw, 280px); height: auto; animation: pre-breathe 2.2s var(--ease) infinite; }
-.preloader-bar { position: relative; width: 140px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.12); overflow: hidden; }
+.preloader-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; animation: pre-in .7s var(--ease-out) both; }
+.preloader-inner img { width: clamp(110px, 28vw, 140px); height: auto; animation: pre-breathe 2.2s var(--ease) infinite; }
+.preloader-bar { position: relative; width: 80px; height: 3px; border-radius: 3px; background: rgba(255,255,255,.12); overflow: hidden; }
 .preloader-bar span { position: absolute; top: 0; bottom: 0; left: 0; width: 40%; border-radius: 3px; background: var(--gold); animation: pre-bar 1.2s var(--ease) infinite; }
 .preloading.loaded .preloader-inner { transform: translateY(-8px) scale(.97); opacity: 0; transition: transform .5s var(--ease), opacity .4s var(--ease); }
 /* Hold the hero entrance until the preloader has gone */

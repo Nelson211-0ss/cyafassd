@@ -73,39 +73,40 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal, .cta-band').forEach(el => revealObserver.observe(el));
 
-// Home hero: background photo slideshow
-const slides = [...document.querySelectorAll('.hero-slides img')];
+// Home hero: photo slideshow, with each photo's own heading, text, buttons and focus label
+const slides = [...document.querySelectorAll('.hero-frame img')];
 if (slides.length) {
   const dots = [...document.querySelectorAll('.slide-dot')];
-  const caption = document.querySelector('.slide-caption-text');
+  const texts = [...document.querySelectorAll('.hero-slide')];
+  const tags = [...document.querySelectorAll('.hero-tag-text strong')];
+  const count = document.querySelector('.hero-count strong');
   let current = 0;
   let timer;
 
   const show = i => {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
+    texts[current].setAttribute('aria-hidden', 'true');
+    texts[current].inert = true;
     dots[current].removeAttribute('aria-current');
+    [slides, texts, tags, dots].forEach(list => list[current].classList.remove('active'));
     current = (i + slides.length) % slides.length;
-    slides[current].classList.add('active');
+    [slides, texts, tags].forEach(list => list[current].classList.add('active'));
+    texts[current].removeAttribute('aria-hidden');
+    texts[current].inert = false;
+    count.textContent = String(current + 1).padStart(2, '0');
     // Restart the dot's fill animation
     void dots[current].offsetWidth;
     dots[current].classList.add('active');
     dots[current].setAttribute('aria-current', 'true');
-    if (caption) {
-      caption.style.opacity = 0;
-      setTimeout(() => {
-        caption.textContent = slides[current].dataset.caption || '';
-        caption.style.opacity = 1;
-      }, 300);
-    }
   };
 
   const start = () => {
     clearInterval(timer);
-    timer = setInterval(() => show(current + 1), 6000);
+    timer = setInterval(() => show(current + 1), 7000);
   };
 
   dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
+  document.querySelectorAll('.hero-arrow').forEach(btn =>
+    btn.addEventListener('click', () => { show(current + Number(btn.dataset.dir)); start(); }));
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) start();
 }
 

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Figtree:wght@400..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=26">
   <script>document.documentElement.classList.add('js');try{if(!sessionStorage.getItem('cyafa-loaded'))document.documentElement.classList.add('preloading')}catch(e){}</script>
 </head>
 <body>
@@ -131,7 +131,7 @@
             </div>
           </div>
           <a href="contact/" class="nav-link">Contact</a>
-          <a href="contact/#partner" class="btn btn-gold nav-cta">Partner With Us <i data-lucide="arrow-right"></i></a>
+          <a href="contact/#partner" class="btn btn-light nav-cta">Support Us</a>
         </nav>
         <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
           <span></span><span></span><span></span>
@@ -141,33 +141,60 @@
   </header>
 
   <main>
-    <section class="hero-home">
-      <div class="hero-slides" aria-hidden="true">
-        <img src="images/hero-schoolchildren.jpg" alt="" class="active" data-caption="Schoolchildren, South Sudan">
-        <img src="images/education-outdoor.jpg" alt="" loading="lazy" data-caption="An outdoor class under a tree">
-        <img src="images/agriculture-kimotong.jpg" alt="" loading="lazy" data-caption="Kimotong, Eastern Equatoria State">
-        <img src="images/livelihoods-fishing.jpg" alt="" loading="lazy" data-caption="Young people preparing fishing nets">
-      </div>
-      <div class="container">
-        <div class="hero-content">
-          <h1>Protecting the rights of <em>children and youth</em> across Africa</h1>
-          <p class="lead">CYAFA South Sudan is a community based nonprofit working to protect children, strengthen families, and empower communities.</p>
-          <div class="hero-actions">
-            <a href="about/" class="btn btn-gold">Learn About Us <i data-lucide="arrow-right"></i></a>
-            <a href="work/" class="btn btn-outline">Our Work</a>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-texts">
+            <div class="hero-slide active">
+              <h1 class="hero-title">Protecting the rights of <em>children and youth</em> across Africa</h1>
+              <p class="lead">CYAFA South Sudan works to protect children, strengthen families, and empower communities.</p>
+              <div class="hero-actions">
+                <a href="about/" class="btn btn-gold">About Us</a>
+                <a href="work/" class="btn btn-outline">Our Work</a>
+              </div>
+            </div>
+            <div class="hero-slide" aria-hidden="true" inert>
+              <h2 class="hero-title">Every child deserves the chance to <em>learn and grow</em></h2>
+              <p class="lead">We build community schools and help vulnerable children stay in school through our Scholarship Programme.</p>
+              <div class="hero-actions">
+                <a href="scholarship/" class="btn btn-gold">Scholarships</a>
+                <a href="scholarship/#support" class="btn btn-outline">Sponsor</a>
+              </div>
+            </div>
+            <div class="hero-slide" aria-hidden="true" inert>
+              <h2 class="hero-title">Empowering <em>young people</em> to build their future</h2>
+              <p class="lead">Vocational training, career guidance and self employment opportunities that help youth become role models.</p>
+              <div class="hero-actions">
+                <a href="work/#youth" class="btn btn-gold">Youth Work</a>
+                <a href="contact/#partner" class="btn btn-outline">Partner</a>
+              </div>
+            </div>
+          </div>
+          <div class="hero-controls">
+            <button class="hero-arrow" data-dir="-1" aria-label="Previous slide"><i data-lucide="arrow-left"></i></button>
+            <button class="hero-arrow" data-dir="1" aria-label="Next slide"><i data-lucide="arrow-right"></i></button>
+            <span class="hero-count"><strong>01</strong> / 03</span>
+            <div class="slide-dots" role="group" aria-label="Hero slides">
+              <button class="slide-dot active" aria-label="Slide 1: Children's rights" aria-current="true"></button>
+              <button class="slide-dot" aria-label="Slide 2: Education"></button>
+              <button class="slide-dot" aria-label="Slide 3: Youth empowerment"></button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="hero-footer">
-        <div class="container">
-          <div class="slide-dots" role="group" aria-label="Background photos">
-            <button class="slide-dot active" aria-label="Photo 1" aria-current="true"></button>
-            <button class="slide-dot" aria-label="Photo 2"></button>
-            <button class="slide-dot" aria-label="Photo 3"></button>
-            <button class="slide-dot" aria-label="Photo 4"></button>
-            <span class="slide-caption"><i data-lucide="map-pin"></i><span class="slide-caption-text">Schoolchildren, South Sudan</span></span>
+        <div class="hero-media" aria-hidden="true">
+          <div class="hero-frame">
+            <img src="images/hero/protect.jpg" alt="" class="active" fetchpriority="high" style="object-position: 35% center">
+            <img src="images/hero/education.jpg" alt="" loading="lazy" style="object-position: 55% center">
+            <img src="images/hero/youth.jpg" alt="" loading="lazy" style="object-position: 78% center">
           </div>
-          <a href="#intro" class="scroll-cue"><em style="font-style:normal">Scroll</em><span><i data-lucide="arrow-down"></i></span></a>
+          <div class="hero-tag">
+            <span class="hero-tag-ic"><i data-lucide="shield-check"></i></span>
+            <span class="hero-tag-text"><small>Our focus</small>
+              <strong class="active">Child Protection</strong>
+              <strong>Education</strong>
+              <strong>Youth Empowerment</strong>
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -197,7 +224,7 @@
             <h2>Our work</h2>
             <p>Practical programs that help children learn, families stay healthy, and young people and women earn a living.</p>
           </div>
-          <a href="work/" class="btn btn-outline-dark">All programs <i data-lucide="arrow-right"></i></a>
+          <a href="work/" class="btn btn-outline-dark">All programs</a>
         </div>
         <div class="work-cards">
           <a href="work/#education" class="work-card reveal">
@@ -275,11 +302,11 @@
         <div class="serve-copy reveal">
           <h2>Who we serve</h2>
           <div class="tab-list" role="tablist" aria-label="Who we serve">
-            <button class="tab-btn" role="tab" id="tab-children" aria-controls="panel-children" aria-selected="true"><span class="tab-num">01</span><span class="tab-title">Children</span><i data-lucide="arrow-right"></i></button>
+            <button class="tab-btn" role="tab" id="tab-children" aria-controls="panel-children" aria-selected="true"><span class="tab-num">01</span><span class="tab-title">Children</span></button>
             <div class="tab-panel" id="panel-children" role="tabpanel" aria-labelledby="tab-children"><p>We support healthy personality development, vocational skills, and professional development for long term sustainability.</p></div>
-            <button class="tab-btn" role="tab" id="tab-women" aria-controls="panel-women" aria-selected="false" tabindex="-1"><span class="tab-num">02</span><span class="tab-title">Women</span><i data-lucide="arrow-right"></i></button>
+            <button class="tab-btn" role="tab" id="tab-women" aria-controls="panel-women" aria-selected="false" tabindex="-1"><span class="tab-num">02</span><span class="tab-title">Women</span></button>
             <div class="tab-panel" id="panel-women" role="tabpanel" aria-labelledby="tab-women" hidden><p>We identify poor women and help them earn an income through self help groups, vocational training, and family welfare programs.</p></div>
-            <button class="tab-btn" role="tab" id="tab-youth" aria-controls="panel-youth" aria-selected="false" tabindex="-1"><span class="tab-num">03</span><span class="tab-title">Youth</span><i data-lucide="arrow-right"></i></button>
+            <button class="tab-btn" role="tab" id="tab-youth" aria-controls="panel-youth" aria-selected="false" tabindex="-1"><span class="tab-num">03</span><span class="tab-title">Youth</span></button>
             <div class="tab-panel" id="panel-youth" role="tabpanel" aria-labelledby="tab-youth" hidden><p>We guide young people toward their goals, offer vocational training and skills upgrading, create self employment opportunities, and encourage them to become role models for future generations.</p></div>
           </div>
           <a href="serve/" class="link-arrow">Learn more <i data-lucide="arrow-right"></i></a>
@@ -304,7 +331,7 @@
               <span class="cause-tag"><i data-lucide="graduation-cap"></i>Priority</span>
               <h3>Education access</h3>
               <p>Help us build new community schools and upgrade existing ones, so more children, especially girls, can go to school and learn.</p>
-              <a href="contact/?topic=Donation&amp;cause=Education%20access#message" class="btn btn-gold">Donate to education <i data-lucide="arrow-right"></i></a>
+              <a href="contact/?topic=Donation&amp;cause=Education%20access#message" class="btn btn-gold">Donate to education</a>
             </div>
           </article>
           <article class="cause reveal">
@@ -379,7 +406,7 @@
           <h2>Partner with us</h2>
           <p>We work with government agencies, NGOs, and donor organizations that share our commitment to community development. If you want to partner, volunteer, or support our work, get in touch.</p>
         </div>
-        <div class="hero-actions reveal"><a href="contact/#partner" class="btn btn-light">Partner With Us <i data-lucide="arrow-right"></i></a><a href="contact/" class="btn btn-outline">Contact Us</a></div>
+        <div class="hero-actions reveal"><a href="contact/#partner" class="btn btn-light">Partner With Us</a><a href="contact/" class="btn btn-outline">Contact Us</a></div>
       </div>
     </section>
 
@@ -448,6 +475,9 @@
             <li>Tailoring: Oliversamson1, <a href="https://commons.wikimedia.org/wiki/File:A_Young_South_Sudanese_Woman_Tailoring_%E2%80%94_Traditional_Craft_and_Livelihood,_South_Sudan_2026.jpg">CC0</a></li>
             <li>Secondary students, Juba: B. Desrus, <a href="https://commons.wikimedia.org/wiki/File:Secondary_school_Sudanese_students_during_a_break_at_Supiri_Secondary_School_in_Juba,_South_Sudan._The_school_is_mix_boys_and_girls.jpg">CC BY-SA 3.0 IGO</a></li>
             <li>Boys reading, Zambia: USAID in Africa, <a href="https://commons.wikimedia.org/wiki/File:Zambian_Boys_Reading_and_Laughing_(15349199369).jpg">public domain</a></li>
+            <li>Grace at play: David Kabiru, <a href="https://commons.wikimedia.org/wiki/File:Grace,_5_years_old,_a_Refugee_from_South_Sudan,_in_a_see-saw_in_Daadab_Refugee_Camp.jpg">CC BY-SA 4.0</a></li>
+            <li>Student reading: Dennisdenaya, <a href="https://commons.wikimedia.org/wiki/File:Learning_Session.jpg">CC BY-SA 4.0</a></li>
+            <li>Vocational school, Yei: Norwegian People's Aid, <a href="https://commons.wikimedia.org/wiki/File:Yrkesskole_i_S%C3%B8r-Sudan_(4711438466).jpg">CC BY 2.0</a></li>
           </ul>
         </details>
         <a href="#top" class="back-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></a>

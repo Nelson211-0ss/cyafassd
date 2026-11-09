@@ -22,9 +22,11 @@ function setMenu(open) {
   header.classList.toggle('menu-open', open);
   toggle.setAttribute('aria-expanded', open);
   toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  root.classList.toggle('menu-locked', open);
 }
 toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
 nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+window.matchMedia('(min-width: 1121px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
 // About dropdown: opens on hover (desktop) or with the arrow button (touch, keyboard, mobile menu)
 const subItems = [...document.querySelectorAll('.nav-item.has-sub')];

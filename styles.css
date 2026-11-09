@@ -218,20 +218,18 @@ a { color: var(--maroon); }
 .mega-contact p a { color: var(--maroon); text-decoration: none; overflow-wrap: anywhere; }
 .mega-contact p a:hover { text-decoration: underline; }
 
-/* Menu button: solid orange with three equal lines that turn into an X */
-.nav-toggle { display: none; position: relative; z-index: 2; width: 46px; height: 46px; padding: 0; border: 0; border-radius: 12px; background: var(--gold); color: var(--maroon-deep); cursor: pointer; transition: background var(--dur) var(--ease), transform var(--dur) var(--ease); }
-.nav-toggle:hover { background: var(--gold-light); }
-.nav-toggle:active { transform: scale(.94); }
-.nav-toggle[aria-expanded="true"] { background: var(--white); }
-.nav-toggle-lines { position: absolute; left: 50%; top: 50%; width: 20px; height: 14px; transform: translate(-50%, -50%); }
+/* Menu button: three plain white lines that turn into an X */
+.nav-toggle { display: none; position: relative; z-index: 2; width: 46px; height: 46px; margin-right: -11px; padding: 0; border: 0; background: none; color: var(--white); cursor: pointer; transition: color var(--dur) var(--ease); }
+.nav-toggle:hover { color: var(--gold-light); }
+.nav-toggle-lines { position: absolute; left: 50%; top: 50%; width: 24px; height: 16px; transform: translate(-50%, -50%); }
 .nav-toggle-lines span { position: absolute; left: 0; width: 100%; height: 2px; border-radius: 2px; background: currentColor; transition: top .25s var(--ease) .2s, transform .25s var(--ease), opacity .15s var(--ease) .15s; }
 .nav-toggle-lines span:nth-child(1) { top: 0; }
-.nav-toggle-lines span:nth-child(2) { top: 6px; }
-.nav-toggle-lines span:nth-child(3) { top: 12px; }
+.nav-toggle-lines span:nth-child(2) { top: 7px; }
+.nav-toggle-lines span:nth-child(3) { top: 14px; }
 .nav-toggle[aria-expanded="true"] .nav-toggle-lines span { transition: top .25s var(--ease), transform .25s var(--ease) .2s, opacity .15s var(--ease); }
-.nav-toggle[aria-expanded="true"] .nav-toggle-lines span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines span:nth-child(1) { top: 7px; transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle-lines span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] .nav-toggle-lines span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-lines span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
 
 /* Contact strip shown only inside the full-screen mobile menu */
 .nav-extra { display: none; }

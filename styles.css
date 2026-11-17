@@ -198,6 +198,19 @@ html.menu-locked { overflow: hidden; }
 
 figcaption, .caption { font-size: var(--fs-xs); color: var(--muted); margin-top: 10px; line-height: 1.5; }
 
+/* ---------- Home: metrics row under the hero ---------- */
+.metrics { position: relative; z-index: 3; height: 0; }
+.metric-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; margin: 0; translate: 0 -50%; padding: 0; background: var(--white); color: var(--ink); border-radius: var(--radius); box-shadow: 0 20px 40px -28px rgba(0,0,0,.5); animation: rise .9s .45s var(--ease-out) both; }
+/* Icon on the left, number and label stacked beside it */
+.metric { display: grid; grid-template-columns: 42px minmax(0, 1fr); column-gap: 14px; align-items: center; padding: 18px clamp(14px, 2vw, 26px); }
+.metric + .metric { border-left: 1px solid var(--line-soft); }
+.metric-ic { grid-row: span 2; display: grid; place-items: center; width: 42px; height: 42px; border-radius: var(--radius); background: rgba(242,154,29,.15); color: #c9780a; transition: background .3s, color .3s; }
+.metric-ic svg { width: 20px; height: 20px; }
+.metric:hover .metric-ic { background: var(--orange); color: var(--maroon-deep); }
+.metric-num { font-family: var(--font-head); font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem); font-weight: 800; line-height: 1; letter-spacing: -.02em; color: var(--maroon-dark); font-variant-numeric: tabular-nums; }
+.metric-label { margin-top: 4px; font-size: var(--fs-sm); font-weight: 600; line-height: 1.3; color: var(--muted); }
+.metric-note { display: none; }
+
 /* ---------- Home: ongoing project (minimal cards) ---------- */
 .project { position: relative; overflow: hidden; isolation: isolate; background: var(--maroon-dark); color: rgba(255,255,255,.86); }
 /* Decoration, all flat colour: a dot patch top right, two thin rings bottom left, an orange half circle on the edge */
@@ -284,23 +297,21 @@ figcaption, .caption { font-size: var(--fs-xs); color: var(--muted); margin-top:
 .serve-col p { color: var(--muted); font-size: var(--fs-sm); line-height: 1.6; }
 .serve-more { margin-top: 32px; }
 
-/* ---------- Home: Founder & Executive Director message (editorial) ---------- */
-.director { position: relative; overflow: hidden; isolation: isolate; border-top: 1px solid var(--line-soft); }
-/* Solid maroon band down the left edge */
-.director::before { content: ""; position: absolute; z-index: -1; left: 0; top: 0; bottom: 0; width: clamp(10px, 1.6vw, 22px); background: var(--maroon-dark); }
-.founder-quote { position: relative; margin: 10px 0 0; max-width: 24ch; font-family: var(--font-head); font-size: clamp(1.75rem, 1.2rem + 2.6vw, 3.3rem); font-weight: 700; line-height: 1.12; letter-spacing: -.02em; color: var(--ink); text-wrap: balance; }
-.founder-quote em { font-style: normal; color: var(--maroon); box-shadow: inset 0 -.18em 0 rgba(242,154,29,.55); }
-.qmark { position: absolute; left: -.62em; top: -.12em; font-family: Georgia, serif; font-size: 1.6em; line-height: 1; color: var(--orange); }
-.founder-row { display: grid; grid-template-columns: 220px minmax(0, 1fr) 240px; gap: clamp(24px, 4vw, 56px); align-items: end; margin-top: clamp(36px, 5vw, 60px); padding-top: clamp(28px, 3vw, 40px); border-top: 2px solid var(--ink); }
-.founder-photo { position: relative; padding-bottom: 8px; }
-.founder-photo::after { content: ""; position: absolute; left: 0; bottom: 0; width: 60%; height: 8px; background: var(--orange); border-radius: var(--radius); }
-.founder-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 12%; border-radius: var(--radius); background: #eef0f2; transition: transform .8s var(--ease-out); }
-.founder-photo:hover img { transform: translateY(-4px); }
-.founder-text { margin: 0; font-size: var(--fs-lead); line-height: 1.7; color: var(--muted); max-width: 52ch; align-self: center; }
-.founder-sign { display: flex; flex-direction: column; gap: 2px; }
-.signature { font-family: "Caveat", "Segoe Script", cursive; font-size: 2.3rem; font-weight: 600; line-height: 1; color: var(--maroon); margin-bottom: 8px; }
-.sign-name { font-family: var(--font-head); font-weight: 700; color: var(--ink); }
-.sign-role { font-size: var(--fs-sm); color: var(--muted); margin-bottom: 14px; }
+/* ---------- Home: Founder & Executive Director message (full-width split) ---------- */
+.director { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--sand); }
+.founder-text-col { position: relative; overflow: hidden; isolation: isolate; display: flex; justify-content: flex-end; }
+/* Big faint quote mark as a watermark */
+.founder-text-col::before { content: "\201C"; position: absolute; z-index: -1; right: 4%; top: -.18em; font-family: Georgia, serif; font-size: clamp(14rem, 22vw, 22rem); line-height: 1; color: rgba(122,29,44,.07); pointer-events: none; }
+.founder-inner { width: 100%; max-width: 590px; padding: clamp(56px, 7vw, 104px) clamp(28px, 5vw, 72px) clamp(56px, 7vw, 104px) clamp(16px, 4vw, 32px); }
+.founder-quote { margin: 6px 0 26px; padding-top: 22px; border-top: 3px solid var(--orange); max-width: 20ch; font-family: var(--font-head); font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.5rem); font-weight: 700; line-height: 1.15; letter-spacing: -.015em; color: var(--maroon-dark); }
+.founder-text { color: var(--muted); font-size: var(--fs-lead); line-height: 1.7; max-width: 50ch; }
+.founder-sign { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 30px; }
+.signature { font-family: "Caveat", "Segoe Script", cursive; font-size: 2.4rem; font-weight: 600; line-height: 1; color: var(--maroon); }
+.founder-photo { position: relative; margin: 0; min-height: 560px; background: #eef0f2; overflow: hidden; }
+.founder-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 12%; transition: transform 1.4s var(--ease-out); }
+.director:hover .founder-photo img { transform: scale(1.03); }
+.founder-plate { position: absolute; left: 0; bottom: clamp(28px, 4vw, 48px); z-index: 1; display: flex; flex-direction: column; margin: 0; padding: 14px 22px 14px 20px; border-left: 4px solid var(--orange); background: var(--maroon-dark); color: rgba(255,255,255,.75); font-size: var(--fs-sm); line-height: 1.4; border-radius: 0 var(--radius) var(--radius) 0; }
+.founder-plate strong { font-family: var(--font-head); font-size: 1.15rem; color: var(--white); }
 
 /* ---------- Home: mission ---------- */
 .mission { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--maroon); color: var(--white); }
@@ -825,15 +836,17 @@ figcaption, .caption { font-size: var(--fs-xs); color: var(--muted); margin-top:
 
 /* Founder message on tablets and phones */
 @media (max-width: 980px) {
-  .founder-row { grid-template-columns: 180px minmax(0, 1fr); }
-  .founder-sign { grid-column: 1 / -1; }
+  .director { grid-template-columns: minmax(0, 1fr); }
+  .founder-photo { order: -1; min-height: 0; aspect-ratio: 4 / 3.4; }
+  .founder-text-col { justify-content: flex-start; }
+  .founder-inner { max-width: none; padding: 48px clamp(16px, 4vw, 32px) 56px; }
 }
 @media (max-width: 640px) {
-  .director .container { padding-left: 28px; }
-  .founder-quote { font-size: clamp(1.6rem, 1.2rem + 3vw, 2rem); }
-  .qmark { position: static; display: block; height: .55em; font-size: 2.4em; margin-bottom: 4px; }
-  .founder-row { grid-template-columns: minmax(0, 1fr); gap: 22px; }
-  .founder-photo { max-width: 220px; }
+  .founder-photo { aspect-ratio: 4 / 4.4; }
+  .founder-quote { font-size: 1.65rem; }
+  .founder-text { font-size: 1.02rem; }
+  .signature { font-size: 2.1rem; }
+  .founder-plate { padding: 10px 16px; }
 }
 
 /* Photos and image tiles share the button corner radius */
@@ -851,13 +864,30 @@ figcaption, .caption { font-size: var(--fs-xs); color: var(--muted); margin-top:
   .intro-text { font-size: 1.2rem; line-height: 1.5; }
   .serve-cols { gap: 32px; }
   .serve-col img { aspect-ratio: 16 / 10; }
-  .director::before { display: none; }
-  .director .container { padding-left: clamp(16px, 4vw, 32px); }
-  .director { border-top: 4px solid var(--maroon-dark); }
-  .founder-row { grid-template-columns: 120px minmax(0, 1fr); gap: 18px 16px; align-items: center; }
-  .founder-photo { max-width: none; grid-row: 1; }
-  .founder-sign { grid-column: 2; grid-row: 1; }
-  .founder-text { grid-column: 1 / -1; font-size: 1.02rem; }
-  .signature { font-size: 1.9rem; margin-bottom: 4px; }
-  .sign-role { margin-bottom: 8px; }
+}
+
+/* Metrics on tablets and phones */
+@media (max-width: 980px) {
+  .metric-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metric:nth-child(3) { border-left: 0; }
+  .metric:nth-child(n+3) { border-top: 1px solid var(--line-soft); }
+}
+@media (max-width: 640px) {
+  .metric { grid-template-columns: 32px minmax(0, 1fr); column-gap: 10px; padding: 14px 12px; }
+  .metric-ic { width: 32px; height: 32px; }
+  .metric-ic svg { width: 17px; height: 17px; }
+  .metric-num { font-size: 1.5rem; }
+  .metric-label { font-size: .8rem; }
+}
+
+/* Metrics card overlapping the hero's bottom edge */
+@media (max-width: 640px) {
+  .hero { padding-bottom: 56px; }
+}
+/* Metrics card centred on the line between the hero and "Who we are" */
+.hero { min-height: min(calc(100svh - var(--header-h) - 64px), 700px); padding-bottom: 96px; }
+.metrics + .intro { padding-top: calc(var(--section-y) + 56px); }
+@media (max-width: 640px) {
+  .hero { min-height: calc(100svh - var(--header-h) - 92px); padding-bottom: 112px; }
+  .metrics + .intro { padding-top: calc(var(--section-y) + 84px); }
 }

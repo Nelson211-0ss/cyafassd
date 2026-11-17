@@ -57,7 +57,7 @@ const revealSelector = [
   '.prog-cell', '.focus-tile', '.panel-body', '.value-tile', '.split-sticky .sticky', '.guide-list li',
   '.step', '.principle-quote', '.ct-quick-card', '.ct-panel', '.ct-involve-card', '.ct-offices > *',
   '.sch-intro > *', '.sch-flagship-inner > *', '.sch-support > *', '.sch-route', '.sch-concern',
-  '.cause-feature', '.cause', '.donate-note', '.partner', '.founder-quote', '.founder-row > *', '.pc'
+  '.cause-feature', '.cause', '.donate-note', '.partner', '.founder-inner', '.founder-plate', '.pc'
 ].join(',');
 const revealTargets = [...document.querySelectorAll(revealSelector)].filter(el => !el.closest('.hero'));
 if ('IntersectionObserver' in window) {
@@ -124,6 +124,24 @@ if (show) {
   });
   // Only run while the section is on screen
   new IntersectionObserver(([e]) => (e.isIntersecting ? play() : stop()), { threshold: 0.3 }).observe(show);
+}
+
+// Home: count the metrics up once the page loads (the year stays fixed)
+const counters = [...document.querySelectorAll('.count:not([data-plain])')];
+if (counters.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const run = el => {
+    const to = Number(el.dataset.to);
+    const start = performance.now(), dur = 1800;
+    const tick = now => {
+      const t = Math.min(1, (now - start) / dur);
+      el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3)));
+      if (t < 1) requestAnimationFrame(tick); else el.textContent = to;
+    };
+    el.textContent = 0;
+    requestAnimationFrame(tick);
+  };
+  // Start a little after the card has risen into place
+  setTimeout(() => counters.forEach(run), 600);
 }
 
 // Work page: highlight the program in view in the sticky program menu

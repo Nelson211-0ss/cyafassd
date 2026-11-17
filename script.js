@@ -57,7 +57,7 @@ const revealSelector = [
   '.prog-cell', '.focus-tile', '.panel-body', '.value-tile', '.split-sticky .sticky', '.guide-list li',
   '.step', '.principle-quote', '.ct-quick-card', '.ct-panel', '.ct-involve-card', '.ct-offices > *',
   '.sch-intro > *', '.sch-flagship-inner > *', '.sch-support > *', '.sch-route', '.sch-concern',
-  '.cause-feature', '.cause', '.donate-note', '.partner'
+  '.cause-feature', '.cause', '.donate-note', '.partner', '.founder-quote', '.founder-row > *', '.pc'
 ].join(',');
 const revealTargets = [...document.querySelectorAll(revealSelector)].filter(el => !el.closest('.hero'));
 if ('IntersectionObserver' in window) {
@@ -84,6 +84,46 @@ if (heroPhotos.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce
     current = (current + 1) % heroPhotos.length;
     heroPhotos[current].classList.add('active');
   }, 6500);
+}
+
+// Home: learner slideshow in the ongoing project section
+const show = document.querySelector('.learner-show');
+if (show) {
+  const pics = [...show.querySelectorAll('.show-slides img')];
+  const thumbs = [...show.querySelectorAll('.show-thumb')];
+  const counter = show.querySelector('.show-count strong');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const delay = 5000;
+  show.style.setProperty('--show-time', `${delay}ms`);
+  let at = 0, timer = null;
+
+  const go = i => {
+    pics[at].classList.remove('active');
+    thumbs[at].classList.remove('active');
+    thumbs[at].removeAttribute('aria-current');
+    at = (i + pics.length) % pics.length;
+    pics[at].classList.add('active');
+    void thumbs[at].offsetWidth; // restart the progress bar
+    thumbs[at].classList.add('active');
+    thumbs[at].setAttribute('aria-current', 'true');
+    counter.textContent = at + 1;
+  };
+  const play = () => { if (reduce) return; clearInterval(timer); timer = setInterval(() => go(at + 1), delay); };
+  const stop = () => clearInterval(timer);
+
+  show.querySelectorAll('.show-arrow').forEach(b => b.addEventListener('click', () => { go(at + Number(b.dataset.dir)); play(); }));
+  thumbs.forEach((t, i) => t.addEventListener('click', () => { go(i); play(); }));
+  show.addEventListener('mouseenter', () => { stop(); show.classList.add('paused'); });
+  show.addEventListener('mouseleave', () => { show.classList.remove('paused'); play(); });
+  let sx = null;
+  show.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  show.addEventListener('touchend', e => {
+    if (sx === null) return;
+    const dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 40) { go(at + (dx < 0 ? 1 : -1)); play(); }
+  });
+  // Only run while the section is on screen
+  new IntersectionObserver(([e]) => (e.isIntersecting ? play() : stop()), { threshold: 0.3 }).observe(show);
 }
 
 // Work page: highlight the program in view in the sticky program menu

@@ -1,13 +1,5 @@
-// Preloader: fade out once the page has loaded (shown on the first page of a visit only)
 const root = document.documentElement;
-const finishPreload = () => {
-  if (!root.classList.contains('preloading') || root.classList.contains('loaded')) return;
-  root.classList.add('loaded');
-  try { sessionStorage.setItem('cyafa-loaded', '1'); } catch (e) {}
-  setTimeout(() => root.classList.remove('preloading', 'loaded'), 650);
-};
-window.addEventListener('load', () => setTimeout(finishPreload, 350));
-setTimeout(finishPreload, 4000); // never keep visitors waiting on a slow image
+root.classList.add('js');
 
 // Render Lucide icons
 if (window.lucide) lucide.createIcons();
@@ -52,99 +44,46 @@ document.addEventListener('keydown', e => {
   if (nav.classList.contains('open')) { setMenu(false); toggle.focus(); }
 });
 
-// Solid header once the page scrolls past the top
-const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+// Header shadow once the page scrolls
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// Stagger sibling reveals (cards in a grid fade in one after another)
-document.querySelectorAll('.reveal').forEach(el => {
-  const siblings = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
-  const i = siblings.indexOf(el);
-  if (i > 0) el.style.setProperty('--delay', `${Math.min(i, 6) * 0.08}s`);
-});
-
-// Fade elements in as they scroll into view
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
+// Fade content in as it scrolls into view; items in the same group appear one after another
+const revealSelector = [
+  'main .section-head', 'main .head-row', '.intro-grid > *', '.work-lead', '.work-list li', '.work-also',
+  '.serve-col', '.mission-text', '.donate-priority', '.cause-list li', '.plain-list li', '.cta-copy',
+  '.cta-band .hero-actions', '.about-split > *', '.ed-row', '.icon-cell', '.sub-card', '.zz-row > *',
+  '.prog-cell', '.focus-tile', '.panel-body', '.value-tile', '.split-sticky .sticky', '.guide-list li',
+  '.step', '.principle-quote', '.ct-quick-card', '.ct-panel', '.ct-involve-card', '.ct-offices > *',
+  '.sch-intro > *', '.sch-flagship-inner > *', '.sch-support > *', '.sch-route', '.sch-concern',
+  '.cause-feature', '.cause', '.donate-note', '.partner'
+].join(',');
+const revealTargets = [...document.querySelectorAll(revealSelector)].filter(el => !el.closest('.hero'));
+if ('IntersectionObserver' in window) {
+  revealTargets.forEach(el => {
+    el.classList.add('reveal');
+    const group = [...el.parentElement.children].filter(c => c.matches(revealSelector));
+    const i = group.indexOf(el);
+    if (i > 0) el.style.setProperty('--delay', `${Math.min(i, 6) * 0.08}s`);
   });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal, .cta-band').forEach(el => revealObserver.observe(el));
-
-// Home hero: photo slideshow, with each photo's own heading, text, buttons and focus label
-const slides = [...document.querySelectorAll('.hero-frame img')];
-if (slides.length) {
-  const dots = [...document.querySelectorAll('.slide-dot')];
-  const texts = [...document.querySelectorAll('.hero-slide')];
-  const tags = [...document.querySelectorAll('.hero-tag-text strong')];
-  const count = document.querySelector('.hero-count strong');
-  let current = 0;
-  let timer;
-
-  const show = i => {
-    texts[current].setAttribute('aria-hidden', 'true');
-    texts[current].inert = true;
-    dots[current].removeAttribute('aria-current');
-    [slides, texts, tags, dots].forEach(list => list[current].classList.remove('active'));
-    current = (i + slides.length) % slides.length;
-    [slides, texts, tags].forEach(list => list[current].classList.add('active'));
-    texts[current].removeAttribute('aria-hidden');
-    texts[current].inert = false;
-    count.textContent = String(current + 1).padStart(2, '0');
-    // Restart the dot's fill animation
-    void dots[current].offsetWidth;
-    dots[current].classList.add('active');
-    dots[current].setAttribute('aria-current', 'true');
-  };
-
-  const start = () => {
-    clearInterval(timer);
-    timer = setInterval(() => show(current + 1), 7000);
-  };
-
-  dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); start(); }));
-  document.querySelectorAll('.hero-arrow').forEach(btn =>
-    btn.addEventListener('click', () => { show(current + Number(btn.dataset.dir)); start(); }));
-  // Swipe the photo left or right on touch screens
-  const media = document.querySelector('.hero-media');
-  let touchX = null;
-  media.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-  media.addEventListener('touchend', e => {
-    if (touchX === null) return;
-    const dx = e.changedTouches[0].clientX - touchX;
-    touchX = null;
-    if (Math.abs(dx) > 40) { show(current + (dx < 0 ? 1 : -1)); start(); }
-  });
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) start();
+  const io = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    io.unobserve(entry.target);
+  }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealTargets.forEach(el => io.observe(el));
 }
 
-// Home: "who we serve" tabs
-const tabs = [...document.querySelectorAll('.tab-btn')];
-if (tabs.length) {
-  const images = [...document.querySelectorAll('.serve-visual img')];
-  const select = tab => {
-    tabs.forEach((t, i) => {
-      const on = t === tab;
-      t.setAttribute('aria-selected', on);
-      t.tabIndex = on ? 0 : -1;
-      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-      images[i].classList.toggle('active', on);
-    });
-  };
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('click', () => select(tab));
-    tab.addEventListener('keydown', e => {
-      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
-      e.preventDefault();
-      const next = tabs[(i + (e.key === 'ArrowDown' ? 1 : -1) + tabs.length) % tabs.length];
-      next.focus();
-      select(next);
-    });
-  });
+// Home hero: cross-fade the background photos
+const heroPhotos = [...document.querySelectorAll('.hero-bg img')];
+if (heroPhotos.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let current = 0;
+  setInterval(() => {
+    heroPhotos[current].classList.remove('active');
+    current = (current + 1) % heroPhotos.length;
+    heroPhotos[current].classList.add('active');
+  }, 6500);
 }
 
 // Work page: highlight the program in view in the sticky program menu
@@ -190,23 +129,6 @@ if (form) {
       (f.phone.value ? `\nPhone: ${f.phone.value}` : '');
     location.href = `mailto:info@cyafassd.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
-}
-
-// Smooth page-to-page fade for browsers without cross-document view transitions
-if (!('onpagereveal' in window)) {
-  document.addEventListener('click', e => {
-    const link = e.target.closest('a[href]');
-    if (!link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    if (link.target === '_blank' || link.hasAttribute('download')) return;
-    const url = new URL(link.href, location.href);
-    const samePage = url.pathname === location.pathname && url.search === location.search;
-    if (url.origin !== location.origin || !/\.html?$|\/$/.test(url.pathname) || samePage) return;
-    e.preventDefault();
-    document.body.classList.add('is-leaving');
-    setTimeout(() => { location.href = link.href; }, 250);
-  });
-  // Restore the page if the visitor comes back with the browser's back button
-  window.addEventListener('pageshow', e => { if (e.persisted) document.body.classList.remove('is-leaving'); });
 }
 
 // Keep the footer year current

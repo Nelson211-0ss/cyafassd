@@ -13,35 +13,13 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Figtree:wght@400..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=30">
-  <script>document.documentElement.classList.add('js');try{if(!sessionStorage.getItem('cyafa-loaded'))document.documentElement.classList.add('preloading')}catch(e){}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Plus+Jakarta+Sans:wght@400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=54">
 </head>
 <body>
-  <div class="preloader" aria-hidden="true">
-    <div class="preloader-inner">
-      <img src="images/cyafa-logo.png" alt="" width="640" height="240">
-      <span class="preloader-bar"><span></span></span>
-    </div>
-  </div>
 
   <!-- HEADER -->
   <header class="site-header" id="top">
-    <div class="topbar">
-      <div class="container topbar-inner">
-        <div class="topbar-info">
-          <a href="mailto:info@cyafassd.org"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>info@cyafassd.org</a>
-          <a href="tel:+211927500585"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+211 927 500 585</a>
-          <span class="hide-sm"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Juba, South Sudan</span>
-        </div>
-        <div class="topbar-social" aria-label="Social media">
-          <!-- TODO: replace # with CYAFA's real social media links -->
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v7h4v-7h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg></a>
-          <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5z"/></svg></a>
-        </div>
-      </div>
-    </div>
     <div class="mainbar">
       <div class="container mainbar-inner">
         <a href="./" class="brand" aria-label="CYAFA South Sudan home">
@@ -153,271 +131,211 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="images/hero/protect.jpg" alt="" class="active" fetchpriority="high" style="--pos: 62% 35%; --pos-sm: 58% center">
+        <img src="images/hero/education.jpg" alt="" loading="lazy" style="--pos: 60% 30%; --pos-sm: 55% center">
+        <img src="images/hero/youth.jpg" alt="" loading="lazy" style="--pos: 70% 40%; --pos-sm: 70% center">
+      </div>
+      <div class="container hero-inner">
         <div class="hero-copy">
-          <div class="hero-texts">
-            <div class="hero-slide active">
-              <h1 class="hero-title">Protecting the rights of <em>children and youth</em> across Africa</h1>
-              <p class="lead">CYAFA South Sudan works to protect children, strengthen families, and empower communities.</p>
-              <div class="hero-actions">
-                <a href="about/" class="btn btn-gold">About Us</a>
-                <a href="work/" class="btn btn-outline">Our Work</a>
-              </div>
-            </div>
-            <div class="hero-slide" aria-hidden="true" inert>
-              <h2 class="hero-title">Every child deserves the chance to <em>learn and grow</em></h2>
-              <p class="lead">We build community schools and help vulnerable children stay in school through our Scholarship Programme.</p>
-              <div class="hero-actions">
-                <a href="scholarship/" class="btn btn-gold">Scholarships</a>
-                <a href="scholarship/#support" class="btn btn-outline">Sponsor</a>
-              </div>
-            </div>
-            <div class="hero-slide" aria-hidden="true" inert>
-              <h2 class="hero-title">Empowering <em>young people</em> to build their future</h2>
-              <p class="lead">Vocational training, career guidance and self employment opportunities that help youth become role models.</p>
-              <div class="hero-actions">
-                <a href="work/#youth" class="btn btn-gold">Youth Work</a>
-                <a href="contact/#partner" class="btn btn-outline">Partner</a>
-              </div>
-            </div>
-          </div>
-          <div class="hero-controls">
-            <button class="hero-arrow" data-dir="-1" aria-label="Previous slide"><i data-lucide="arrow-left"></i></button>
-            <button class="hero-arrow" data-dir="1" aria-label="Next slide"><i data-lucide="arrow-right"></i></button>
-            <span class="hero-count"><strong>01</strong> / 03</span>
-            <div class="slide-dots" role="group" aria-label="Hero slides">
-              <button class="slide-dot active" aria-label="Slide 1: Children's rights" aria-current="true"></button>
-              <button class="slide-dot" aria-label="Slide 2: Education"></button>
-              <button class="slide-dot" aria-label="Slide 3: Youth empowerment"></button>
-            </div>
-          </div>
-        </div>
-        <div class="hero-media" aria-hidden="true">
-          <div class="hero-frame">
-            <img src="images/hero/protect.jpg" alt="" class="active" fetchpriority="high" style="object-position: 35% center">
-            <img src="images/hero/education.jpg" alt="" loading="lazy" style="object-position: 55% center">
-            <img src="images/hero/youth.jpg" alt="" loading="lazy" style="object-position: 78% center">
-          </div>
-          <div class="hero-tag">
-            <span class="hero-tag-ic"><i data-lucide="shield-check"></i></span>
-            <span class="hero-tag-text"><small>Our focus</small>
-              <strong class="active">Child Protection</strong>
-              <strong>Education</strong>
-              <strong>Youth Empowerment</strong>
-            </span>
+          <h1>Protecting the rights of <em>children and youth</em> across Africa</h1>
+          <p class="lead">CYAFA South Sudan works to protect children, strengthen families, and empower communities.</p>
+          <div class="hero-actions">
+            <a href="work/" class="btn btn-gold">See our work <i data-lucide="arrow-right"></i></a>
+            <a href="#donate" class="btn btn-outline"><i data-lucide="heart"></i> Support a child</a>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="marquee" aria-label="Our focus areas">
-      <div class="marquee-track">
-        <ul><li><i data-lucide="apple"></i>Nutrition</li><li><i data-lucide="heart-handshake"></i>Peacebuilding</li><li><i data-lucide="wheat"></i>Food Security</li><li><i data-lucide="sprout"></i>Agriculture</li><li><i data-lucide="droplets"></i>WASH</li><li><i data-lucide="rocket"></i>Youth Empowerment</li><li><i data-lucide="book-open"></i>Education</li><li><i data-lucide="building-2"></i>Community Infrastructure</li><li><i data-lucide="siren"></i>Emergency Response</li><li><i data-lucide="hand-heart"></i>Women's Empowerment</li><li><i data-lucide="gavel"></i>Free Legal Aid</li><li><i data-lucide="vote"></i>Democracy</li></ul>
-        <ul aria-hidden="true"><li><i data-lucide="apple"></i>Nutrition</li><li><i data-lucide="heart-handshake"></i>Peacebuilding</li><li><i data-lucide="wheat"></i>Food Security</li><li><i data-lucide="sprout"></i>Agriculture</li><li><i data-lucide="droplets"></i>WASH</li><li><i data-lucide="rocket"></i>Youth Empowerment</li><li><i data-lucide="book-open"></i>Education</li><li><i data-lucide="building-2"></i>Community Infrastructure</li><li><i data-lucide="siren"></i>Emergency Response</li><li><i data-lucide="hand-heart"></i>Women's Empowerment</li><li><i data-lucide="gavel"></i>Free Legal Aid</li><li><i data-lucide="vote"></i>Democracy</li></ul>
-      </div>
-    </div>
-
-    <section class="section" id="intro">
-      <div class="container statement-wrap">
-        <div class="statement-label reveal"><span class="eyebrow">Who we are</span></div>
-        <div class="reveal">
-          <p class="big-statement">Children and Youths Advocate Foundation in Africa (CYAFA South Sudan) was founded to <mark>improve and uphold the rights of children and youth</mark> in communities across Africa. We work with high need, low resource families to <mark>prevent child abuse, reduce child poverty,</mark> and give every child a better chance in life.</p>
-          <a href="about/" class="link-arrow">About us <i data-lucide="arrow-right"></i></a>
+    <section class="section intro" id="intro">
+      <div class="container intro-grid">
+        <h2 class="intro-label">Who we are</h2>
+        <div>
+          <p class="intro-text">Children and Youths Advocate Foundation in Africa (CYAFA South Sudan) was founded to improve and uphold the rights of children and youth in communities across Africa. We work with high need, low resource families to prevent child abuse, reduce child poverty, and give every child a better chance in life.</p>
+          <a href="about/" class="text-link">More about us</a>
         </div>
       </div>
     </section>
 
-    <section class="section section-tint">
+    <section class="section section-sand">
       <div class="container">
-        <div class="head-row reveal">
+        <div class="head-row">
           <div class="section-head">
-            <span class="eyebrow">What we do</span>
             <h2>Our work</h2>
             <p>Practical programs that help children learn, families stay healthy, and young people and women earn a living.</p>
           </div>
-          <a href="work/" class="btn btn-outline-dark">All programs</a>
+          <a href="work/" class="text-link">All programs</a>
         </div>
-        <div class="work-cards">
-          <a href="work/#education" class="work-card reveal">
-            <div class="work-card-img">
-              <img src="images/education.jpg" alt="Children learning outdoors under a tree" loading="lazy">
-              <span class="work-card-num">01</span>
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-ic"><i data-lucide="graduation-cap"></i></span>
-              <h3>Education</h3>
-              <p>New community schools and upgrades to existing ones, with a special focus on the girl child.</p>
-              <span class="link-arrow">Learn more <i data-lucide="arrow-right"></i></span>
-            </div>
+
+        <div class="work-layout">
+          <a href="work/#education" class="work-lead">
+            <img src="images/education.jpg" alt="Children learning outdoors under a tree" loading="lazy">
+            <h3>Education</h3>
+            <p>New community schools and upgrades to existing ones, with a special focus on the girl child.</p>
           </a>
-          <a href="work/#health" class="work-card reveal">
-            <div class="work-card-img">
-              <img src="images/health-wash.jpg" alt="A volunteer preparing a chlorine solution to make water safe" loading="lazy">
-              <span class="work-card-num">02</span>
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-ic"><i data-lucide="heart-pulse"></i></span>
-              <h3>Health &amp; WASH</h3>
-              <p>Maternal and child health, immunization, safe drinking water and sanitation.</p>
-              <span class="link-arrow">Learn more <i data-lucide="arrow-right"></i></span>
-            </div>
-          </a>
-          <a href="work/#women" class="work-card reveal">
-            <div class="work-card-img">
-              <img src="images/women-tailoring.jpg" alt="A young woman sewing on a tailoring machine" loading="lazy" style="object-position: center 30%">
-              <span class="work-card-num">03</span>
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-ic"><i data-lucide="hand-heart"></i></span>
-              <h3>Women's Empowerment</h3>
-              <p>Self help groups, income generating activities and vocational training.</p>
-              <span class="link-arrow">Learn more <i data-lucide="arrow-right"></i></span>
-            </div>
-          </a>
-          <a href="work/#livelihoods" class="work-card reveal">
-            <div class="work-card-img">
-              <img src="images/livelihoods-fishing.jpg" alt="Young men preparing fishing nets" loading="lazy">
-              <span class="work-card-num">04</span>
-            </div>
-            <div class="work-card-body">
-              <span class="work-card-ic"><i data-lucide="piggy-bank"></i></span>
-              <h3>Livelihoods</h3>
-              <p>Access to credit and group savings for small enterprises.</p>
-              <span class="link-arrow">Learn more <i data-lucide="arrow-right"></i></span>
-            </div>
-          </a>
-        </div>
-        <div class="work-more reveal">
-          <p class="work-more-title">More programs</p>
-          <ul>
-            <li><a href="scholarship/"><i data-lucide="award"></i>Scholarship Programme</a></li>
-            <li><a href="work/#youth"><i data-lucide="users"></i>Youth Empowerment</a></li>
-            <li><a href="work/#legal-aid"><i data-lucide="scale"></i>Child Protection &amp; Legal Aid</a></li>
-            <li><a href="work/#environment"><i data-lucide="leaf"></i>Environment &amp; Agriculture</a></li>
-            <li><a href="work/#peacebuilding"><i data-lucide="landmark"></i>Peacebuilding &amp; Human Rights</a></li>
-            <li><a href="work/#emergency"><i data-lucide="siren"></i>Emergency Response</a></li>
-            <li><a href="work/#drug-abuse"><i data-lucide="shield-plus"></i>Drug Abuse Prevention</a></li>
-            <li><a href="work/#resource-center"><i data-lucide="library"></i>Resource Center</a></li>
+          <ul class="work-list">
+            <li>
+              <a href="work/#health">
+                <img src="images/health-wash.jpg" alt="A volunteer preparing a chlorine solution to make water safe" loading="lazy">
+                <span><strong>Health &amp; WASH</strong>Maternal and child health, immunization, safe drinking water and sanitation.</span>
+              </a>
+            </li>
+            <li>
+              <a href="work/#women">
+                <img src="images/women-tailoring.jpg" alt="A young woman sewing on a tailoring machine" loading="lazy" style="object-position: center 30%">
+                <span><strong>Women's Empowerment</strong>Self help groups, income generating activities and vocational training.</span>
+              </a>
+            </li>
+            <li>
+              <a href="work/#livelihoods">
+                <img src="images/livelihoods-fishing.jpg" alt="Young men preparing fishing nets" loading="lazy">
+                <span><strong>Livelihoods</strong>Access to credit and group savings for small enterprises.</span>
+              </a>
+            </li>
           </ul>
         </div>
+
+        <p class="work-also"><span>We also run:</span>
+          <a href="scholarship/">Scholarship Programme</a>,
+          <a href="work/#youth">Youth Empowerment</a>,
+          <a href="work/#legal-aid">Child Protection &amp; Legal Aid</a>,
+          <a href="work/#environment">Environment &amp; Agriculture</a>,
+          <a href="work/#peacebuilding">Peacebuilding &amp; Human Rights</a>,
+          <a href="work/#emergency">Emergency Response</a>,
+          <a href="work/#drug-abuse">Drug Abuse Prevention</a> and the
+          <a href="work/#resource-center">Resource Center</a>.
+        </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container serve-tabs">
-        <div class="serve-visual reveal">
-          <img src="images/children-yambio.jpg" alt="A group of children standing together in Yambio, Western Equatoria" class="active" loading="lazy">
-          <img src="images/women-tailoring.jpg" alt="A young woman sewing on a tailoring machine" loading="lazy">
-          <img src="images/youth-students.jpg" alt="Secondary school students in Juba" loading="lazy">
-        </div>
-        <div class="serve-copy reveal">
+      <div class="container">
+        <div class="section-head">
           <h2>Who we serve</h2>
-          <div class="tab-list" role="tablist" aria-label="Who we serve">
-            <button class="tab-btn" role="tab" id="tab-children" aria-controls="panel-children" aria-selected="true"><span class="tab-num">01</span><span class="tab-title">Children</span></button>
-            <div class="tab-panel" id="panel-children" role="tabpanel" aria-labelledby="tab-children"><p>We support healthy personality development, vocational skills, and professional development for long term sustainability.</p></div>
-            <button class="tab-btn" role="tab" id="tab-women" aria-controls="panel-women" aria-selected="false" tabindex="-1"><span class="tab-num">02</span><span class="tab-title">Women</span></button>
-            <div class="tab-panel" id="panel-women" role="tabpanel" aria-labelledby="tab-women" hidden><p>We identify poor women and help them earn an income through self help groups, vocational training, and family welfare programs.</p></div>
-            <button class="tab-btn" role="tab" id="tab-youth" aria-controls="panel-youth" aria-selected="false" tabindex="-1"><span class="tab-num">03</span><span class="tab-title">Youth</span></button>
-            <div class="tab-panel" id="panel-youth" role="tabpanel" aria-labelledby="tab-youth" hidden><p>We guide young people toward their goals, offer vocational training and skills upgrading, create self employment opportunities, and encourage them to become role models for future generations.</p></div>
-          </div>
-          <a href="serve/" class="link-arrow">Learn more <i data-lucide="arrow-right"></i></a>
         </div>
+        <div class="serve-cols">
+          <figure class="serve-col">
+            <img src="images/children-yambio.jpg" alt="A group of children standing together in Yambio, Western Equatoria" loading="lazy">
+            <figcaption>
+              <h3>Children</h3>
+              <p>We support healthy personality development, vocational skills, and professional development for long term sustainability.</p>
+            </figcaption>
+          </figure>
+          <figure class="serve-col">
+            <img src="images/woman-portrait.jpg" alt="A Mundari woman in Terekeka" loading="lazy" style="object-position: center 25%">
+            <figcaption>
+              <h3>Women</h3>
+              <p>We identify poor women and help them earn an income through self help groups, vocational training, and family welfare programs.</p>
+            </figcaption>
+          </figure>
+          <figure class="serve-col">
+            <img src="images/youth-students.jpg" alt="Secondary school students in Juba" loading="lazy">
+            <figcaption>
+              <h3>Youth</h3>
+              <p>We guide young people toward their goals, offer vocational training, create self employment opportunities, and encourage them to become role models.</p>
+            </figcaption>
+          </figure>
+        </div>
+        <a href="serve/" class="text-link serve-more">Read more about who we serve</a>
       </div>
     </section>
 
+    <section class="mission">
+      <div class="mission-photo">
+        <img src="images/children-kimotong.jpg" alt="Children of the Laarim community in Kimotong" loading="lazy" style="object-position: center 35%">
+      </div>
+      <div class="mission-text">
+        <p class="kicker">Our mission</p>
+        <blockquote>To advocate for the rights of children and youth in the most marginalized communities in Africa.</blockquote>
+      </div>
+    </section>
 
-    <section class="section donate section-tint" id="donate">
+    <section class="section donate" id="donate">
       <div class="container">
-        <div class="head-row reveal">
+        <div class="section-head">
+          <h2>Support our work</h2>
+          <p>Your donation helps children, women and youth in South Sudan. Choose the work you would like to support.</p>
+        </div>
+        <div class="donate-layout">
+          <article class="donate-priority">
+            <img src="images/education-outdoor.jpg" alt="Children attending an outdoor class under a tree" loading="lazy">
+            <p class="kicker">Where help is needed most</p>
+            <h3>Education access</h3>
+            <p>Help us build new community schools and upgrade existing ones, so more children, especially girls, can go to school and learn.</p>
+            <a href="contact/?topic=Donation&amp;cause=Education%20access#message" class="btn btn-primary">Donate to education</a>
+          </article>
+          <ul class="cause-list">
+            <li>
+              <h3><i data-lucide="scale"></i>Child protection and legal aid</h3>
+              <p>Free legal assistance for children who are victims of abuse, exploitation and trafficking.</p>
+              <a href="contact/?topic=Donation&amp;cause=Child%20protection#message" class="text-link">Donate</a>
+            </li>
+            <li>
+              <h3><i data-lucide="droplets"></i>Health and clean water</h3>
+              <p>Safe drinking water, sanitation and basic health care for communities in neglected areas.</p>
+              <a href="contact/?topic=Donation&amp;cause=Health%20and%20clean%20water#message" class="text-link">Donate</a>
+            </li>
+            <li>
+              <h3><i data-lucide="hand-heart"></i>Women's empowerment</h3>
+              <p>Self help groups, vocational skills and a steady income for poor women.</p>
+              <a href="contact/?topic=Donation&amp;cause=Women%27s%20empowerment#message" class="text-link">Donate</a>
+            </li>
+            <li>
+              <h3><i data-lucide="users"></i>Youth skills and training</h3>
+              <p>Career guidance, vocational training and a path to self employment.</p>
+              <a href="contact/?topic=Donation&amp;cause=Youth%20skills#message" class="text-link">Donate</a>
+            </li>
+          </ul>
+        </div>
+        <p class="donate-note"><i data-lucide="info"></i>To donate, send us a message and our team will tell you how you can give.</p>
+      </div>
+    </section>
+
+    <section class="section section-sand">
+      <div class="container why-grid">
+        <div>
+          <h2>Why CYAFA</h2>
+          <p class="muted">What we bring to every community we work with.</p>
+        </div>
+        <ul class="plain-list icon-list">
+          <li><i data-lucide="badge-check"></i>A qualified, experienced, and dedicated team</li>
+          <li><i data-lucide="house"></i>Strong support from local communities</li>
+          <li><i data-lucide="megaphone"></i>Recognition as a true representative of the people we serve</li>
+          <li><i data-lucide="network"></i>An extensive grassroots network</li>
+          <li><i data-lucide="handshake"></i>Strong partnerships for innovative initiatives</li>
+          <li><i data-lucide="wrench"></i>Modern equipment and tools</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section partners" id="partners">
+      <div class="container">
+        <div class="head-row">
           <div class="section-head">
-            <h2>Support our work</h2>
-            <p>Your donation helps children, women and youth in South Sudan. Choose the work you would like to support.</p>
+            <h2>Our partners</h2>
+            <p>We work alongside international organizations and donors who share our commitment to children, families and communities.</p>
           </div>
-          <a href="contact/?topic=Donation&amp;cause=General%20support#message" class="btn btn-primary">Donate <i data-lucide="heart"></i></a>
+          <a href="contact/#partner" class="text-link">Become a partner</a>
         </div>
-        <div class="donate-grid">
-          <article class="cause-feature reveal">
-            <img src="images/education-outdoor.jpg" alt="Children attending an outdoor class under a tree" loading="lazy" style="object-position: center">
-            <div class="cause-feature-body">
-              <span class="cause-tag"><i data-lucide="graduation-cap"></i>Priority</span>
-              <h3>Education access</h3>
-              <p>Help us build new community schools and upgrade existing ones, so more children, especially girls, can go to school and learn.</p>
-              <a href="contact/?topic=Donation&amp;cause=Education%20access#message" class="btn btn-gold">Donate to education</a>
-            </div>
-          </article>
-          <article class="cause reveal">
-            <div class="cause-img"><img src="images/children-yambio.jpg" alt="" loading="lazy" style="object-position: center"></div>
-            <div class="cause-body">
-              <span class="cause-ic"><i data-lucide="scale"></i></span>
-              <h3>Child protection and legal aid</h3>
-              <p>Help us give free legal assistance to children who are victims of abuse, exploitation and trafficking.</p>
-              <a href="contact/?topic=Donation&amp;cause=Child%20protection#message" class="link-arrow">Donate <i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="cause reveal">
-            <div class="cause-img"><img src="images/health-wash.jpg" alt="" loading="lazy" style="object-position: center 40%"></div>
-            <div class="cause-body">
-              <span class="cause-ic"><i data-lucide="droplets"></i></span>
-              <h3>Health and clean water</h3>
-              <p>Help bring safe drinking water, sanitation and basic health care to communities in neglected areas.</p>
-              <a href="contact/?topic=Donation&amp;cause=Health%20and%20clean%20water#message" class="link-arrow">Donate <i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="cause reveal">
-            <div class="cause-img"><img src="images/women-tailoring.jpg" alt="" loading="lazy" style="object-position: center 30%"></div>
-            <div class="cause-body">
-              <span class="cause-ic"><i data-lucide="hand-heart"></i></span>
-              <h3>Women's empowerment</h3>
-              <p>Help poor women join self help groups, learn vocational skills and earn an income.</p>
-              <a href="contact/?topic=Donation&amp;cause=Women%27s%20empowerment#message" class="link-arrow">Donate <i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-          <article class="cause reveal">
-            <div class="cause-img"><img src="images/youth-students.jpg" alt="" loading="lazy" style="object-position: center"></div>
-            <div class="cause-body">
-              <span class="cause-ic"><i data-lucide="users"></i></span>
-              <h3>Youth skills and training</h3>
-              <p>Help young people get career guidance, vocational training and a path to self employment.</p>
-              <a href="contact/?topic=Donation&amp;cause=Youth%20skills#message" class="link-arrow">Donate <i data-lucide="arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <p class="donate-note reveal"><i data-lucide="info"></i>To donate, send us a message and our team will share how you can give.</p>
-      </div>
-    </section>
-
-    <section class="photo-band" style="background-image: url('images/children-kimotong.jpg'); background-position: center 35%">
-      <div class="container reveal">
-        <blockquote>
-          <i data-lucide="quote"></i>
-          To advocate for the rights of children and youth in the most marginalized communities in Africa.
-          <cite>Our Mission</cite>
-        </blockquote>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-      <div class="container">
-        <div class="section-head reveal"><h2>Why CYAFA</h2></div>
-        <ol class="num-list reveal">
-          <li>A qualified, experienced, and dedicated team<i data-lucide="badge-check"></i></li>
-          <li>Strong support from local communities<i data-lucide="house"></i></li>
-          <li>Recognition as a true representative of the people we serve<i data-lucide="megaphone"></i></li>
-          <li>An extensive grassroots network<i data-lucide="network"></i></li>
-          <li>Strong partnerships for innovative initiatives<i data-lucide="handshake"></i></li>
-          <li>Modern equipment and tools<i data-lucide="wrench"></i></li>
-        </ol>
+        <ul class="partner-grid" aria-label="Partner organizations">
+          <li class="partner"><img src="images/partners/web/unicef.png" alt="UNICEF" loading="lazy" style="--h: 50px"></li>
+          <li class="partner"><img src="images/partners/web/save-the-children.png" alt="Save the Children" loading="lazy" style="--h: 72px"></li>
+          <li class="partner"><img src="images/partners/web/world-vision.png" alt="World Vision" loading="lazy" style="--h: 36px"></li>
+          <li class="partner"><img src="images/partners/web/undp.png" alt="UNDP" loading="lazy" style="--h: 76px"></li>
+          <li class="partner"><img src="images/partners/web/giz.png" alt="GIZ (Deutsche Gesellschaft für Internationale Zusammenarbeit)" loading="lazy" style="--h: 56px"></li>
+          <li class="partner"><img src="images/partners/web/australian-aid.png" alt="Australian Aid" loading="lazy" style="--h: 60px"></li>
+        </ul>
       </div>
     </section>
 
     <section class="cta-band">
-      <img src="images/women-tailoring.jpg" alt="" loading="lazy" style="object-position: center 30%">
       <div class="container">
-        <div class="cta-copy reveal">
+        <div class="cta-copy">
           <h2>Partner with us</h2>
           <p>We work with government agencies, NGOs, and donor organizations that share our commitment to community development. If you want to partner, volunteer, or support our work, get in touch.</p>
         </div>
-        <div class="hero-actions reveal"><a href="contact/#partner" class="btn btn-light">Partner With Us</a><a href="contact/" class="btn btn-outline">Contact Us</a></div>
+        <div class="hero-actions"><a href="contact/#partner" class="btn btn-light">Partner with us</a><a href="contact/" class="btn btn-outline">Contact us</a></div>
       </div>
     </section>
 
@@ -497,6 +415,6 @@
   </footer>
 
   <script src="js/lucide.min.js"></script>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

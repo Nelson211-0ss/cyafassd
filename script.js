@@ -51,8 +51,8 @@ onScroll();
 
 // Fade content in as it scrolls into view; items in the same group appear one after another
 const revealSelector = [
-  'main .section-head', 'main .head-row', '.intro-grid > *', '.work-lead', '.work-list li', '.work-also',
-  '.serve-col', '.mission-text', '.donate-priority', '.cause-list li', '.plain-list li', '.cta-copy',
+  'main .section-head', 'main .head-row', '.intro-split > *', '.action-tile', '.why-card', '.tcard-m', '.camp', '.arch', '.cause-card', '.give-feature', '.mission-band .container', '.give-band .container', '.work-lead', '.work-list li', '.work-also',
+  '.serve-col', '.mission-text', '.donate-priority', '.cause-list li',  '.cta-copy',
   '.cta-band .hero-actions', '.about-split > *', '.ed-row', '.icon-cell', '.sub-card', '.zz-row > *',
   '.prog-cell', '.focus-tile', '.panel-body', '.value-tile', '.split-sticky .sticky', '.guide-list li',
   '.step', '.principle-quote', '.ct-quick-card', '.ct-panel', '.ct-involve-card', '.ct-offices > *',
@@ -76,7 +76,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // Home hero: cross-fade the background photos
-const heroPhotos = [...document.querySelectorAll('.hero-bg img')];
+const heroPhotos = [...document.querySelectorAll('.africa img')];
 if (heroPhotos.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   let current = 0;
   setInterval(() => {
@@ -142,6 +142,38 @@ if (counters.length && !window.matchMedia('(prefers-reduced-motion: reduce)').ma
   };
   // Start a little after the card has risen into place
   setTimeout(() => counters.forEach(run), 600);
+}
+
+// Language switcher: Google Translate, loaded only when a visitor picks another language
+const langBox = document.querySelector('.lang');
+if (langBox) {
+  const langBtn = langBox.querySelector('.lang-btn');
+  const current = (document.cookie.match(/(?:^|;\s*)googtrans=\/en\/([^;]+)/) || [])[1] || 'en';
+  langBox.querySelector('.lang-cur').textContent = current.split('-')[0].toUpperCase();
+  langBox.querySelectorAll('[data-lang]').forEach(b => {
+    if (b.dataset.lang === current) b.setAttribute('aria-current', 'true');
+    b.addEventListener('click', () => {
+      const code = b.dataset.lang;
+      const host = location.hostname;
+      const domains = host ? ['', host, '.' + host.replace(/^www\./, '')] : [''];
+      domains.forEach(d => { document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${d ? '; domain=' + d : ''}`; });
+      if (code !== 'en') document.cookie = `googtrans=/en/${code}; path=/`;
+      location.reload();
+    });
+  });
+  const setOpen = open => { langBox.classList.toggle('open', open); langBtn.setAttribute('aria-expanded', open); };
+  langBtn.addEventListener('click', e => { e.stopPropagation(); setOpen(!langBox.classList.contains('open')); });
+  document.addEventListener('click', e => { if (!langBox.contains(e.target)) setOpen(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+
+  if (current !== 'en') {
+    window.googleTranslateElementInit = () => new google.translate.TranslateElement(
+      { pageLanguage: 'en', includedLanguages: 'en,fr,de,es,ar,pt,it,nl,sw,no,sv,zh-CN,ja,ko', autoDisplay: false },
+      'google_translate_element');
+    const s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(s);
+  }
 }
 
 // Work page: highlight the program in view in the sticky program menu

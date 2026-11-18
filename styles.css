@@ -116,7 +116,7 @@ a { color: var(--maroon); text-underline-offset: 3px; }
 .nav-item:hover .sub-toggle svg, .nav-item.open .sub-toggle svg { transform: rotate(180deg); }
 .mega {
   position: absolute; left: 0; right: 0; top: 100%; z-index: 10;
-  background: var(--white); border-top: 3px solid var(--orange);
+  background: var(--white);
   box-shadow: 0 30px 50px -30px rgba(36,12,14,.55);
   opacity: 0; visibility: hidden; transform: translateY(8px);
   transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s;

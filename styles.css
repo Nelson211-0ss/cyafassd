@@ -1570,3 +1570,38 @@ h3, h4 { font-weight: 700; letter-spacing: 0; }
   .tc-body h3 { font-size: .95rem; }
   .tc-body p { font-size: .78rem; }
 }
+
+
+/* ---------- Header: transparent over the hero, maroon once the page scrolls ---------- */
+.site-header { position: fixed; left: 0; right: 0; top: 0; background: transparent; transition: background .35s var(--ease), box-shadow .35s var(--ease); }
+.site-header.scrolled, .site-header.menu-open { background: var(--maroon-dark); }
+.mainbar-inner { transition: height .35s var(--ease); }
+.brand { position: relative; }
+.brand-logo { height: 60px; transition: opacity .3s var(--ease), height .35s var(--ease); }
+.site-header.scrolled .brand-logo { height: 50px; }
+.logo-color { position: absolute; left: 0; top: 50%; translate: 0 -50%; opacity: 0; pointer-events: none; }
+.hero { padding-top: calc(var(--header-h) + clamp(40px, 5vw, 72px)); }
+.page-hero { min-height: calc(380px + var(--header-h)); max-height: calc(520px + var(--header-h)); }
+.page-hero .container { padding-top: calc(var(--header-h) + clamp(48px, 7vw, 96px)); }
+
+/* Home: the hero is light, so the bar starts with the colour logo and dark links */
+.site-header.on-light:not(.scrolled):not(.menu-open) .logo-light { opacity: 0; }
+.site-header.on-light:not(.scrolled):not(.menu-open) .logo-color { opacity: 1; pointer-events: auto; }
+.site-header.on-light:not(.scrolled):not(.menu-open) .nav-toggle { color: var(--maroon-dark); }
+@media (min-width: 1121px) {
+  .site-header.on-light:not(.scrolled) .site-nav > .nav-link,
+  .site-header.on-light:not(.scrolled) .nav-item > .nav-link,
+  .site-header.on-light:not(.scrolled) .sub-toggle { color: var(--maroon-dark); }
+  .site-header.on-light:not(.scrolled) .nav-cta { background: var(--maroon); border-color: var(--maroon); color: var(--white); }
+  .site-header.on-light:not(.scrolled) .nav-cta:hover { background: var(--maroon-dark); border-color: var(--maroon-dark); }
+  .site-header.on-light:not(.scrolled) .lang-btn { color: var(--maroon-dark); border-color: rgba(75,17,27,.3); }
+  .site-header.on-light:not(.scrolled) .lang-btn:hover, .site-header.on-light:not(.scrolled) .lang.open .lang-btn { border-color: var(--maroon-dark); background: rgba(75,17,27,.05); }
+}
+@media (max-width: 1120px) {
+  .site-header.on-light:not(.scrolled):not(.menu-open) .lang-btn { color: var(--maroon-dark); border-color: rgba(75,17,27,.3); }
+}
+@media (max-width: 640px) {
+  .brand-logo { height: 44px; }
+  .site-header.scrolled .brand-logo { height: 40px; }
+  .page-hero { min-height: calc(320px + var(--header-h)); max-height: none; }
+}

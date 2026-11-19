@@ -1541,7 +1541,7 @@ h3, h4 { font-weight: 700; letter-spacing: 0; }
 
 
 /* ---------- Meet our team: rectangular photo cards with social icons ---------- */
-.tc-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 28px); list-style: none; margin: 0; padding: 0; }
+.tc-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 280px)); justify-content: center; gap: clamp(16px, 2.4vw, 28px); list-style: none; margin: 0; padding: 0; }
 .tcard-m { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: 0 20px 40px -32px rgba(51,11,18,.5); transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out); }
 .tcard-m:hover { transform: translateY(-6px); box-shadow: 0 30px 50px -30px rgba(51,11,18,.55); }
 .tc-photo { position: relative; aspect-ratio: 1 / 1.05; overflow: hidden; background: var(--sand); }

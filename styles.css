@@ -4,6 +4,7 @@
    colours (red, orange, green, blue) appear only as accents.
    ========================================================= */
 :root {
+  color-scheme: only light;
   --paper: #f7f2e9;
   --sand: #ede4d3;
   --white: #ffffff;
@@ -1173,7 +1174,7 @@ body { top: 0 !important; }
 
 /* Page banner: centred title, breadcrumb pill, straight bottom edge */
 .page-hero { min-height: 340px; height: auto; max-height: none; align-items: center; text-align: center; }
-.page-hero::after { background: rgba(51,11,18,.68); }
+.page-hero::after { background: linear-gradient(160deg, rgba(51,11,18,.92) 0%, rgba(75,17,27,.74) 50%, rgba(122,29,44,.62) 100%); }
 .page-hero .container { display: flex; flex-direction: column; align-items: center; padding-top: clamp(72px, 9vw, 112px); padding-bottom: clamp(80px, 9vw, 112px); }
 .page-hero h1 { order: 1; max-width: 18ch; }
 .page-hero p { order: 2; margin: 0 auto; }
